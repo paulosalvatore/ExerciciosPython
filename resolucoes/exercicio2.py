@@ -2,6 +2,7 @@
 Exercício 2
 
 Objetivo: Praticar formatação de valores numéricos.
+Dificuldade: Principiante
 
 1 - Declare duas variáveis numéricas 'total_conta' e 'valor_pago' e atribua os valores 82.57 e 100, respectivamente;
 2 - Declare uma variávei chamada 'troco' e armazene o resultado da subtração entre as duas variáveis declaradas anteriormente;
