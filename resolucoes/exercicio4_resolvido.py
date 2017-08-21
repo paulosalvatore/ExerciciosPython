@@ -3,7 +3,7 @@ Exercício 4
 
 Nome: Data e Hora
 Objetivo: Formatar a Data e Hora baseado em valores obtidos da biblioteca datetime e também valores informados pelo usuário.
-Dificuldade: Principiante
+Dificuldade: Intermediário
 
 1 - Declare as variáveis para obter a data e a hora atual (dia, mês, ano, hora, minuto e segundo);
 2 - Exiba essa informação para o usuário, devidamente formatada no formato "{DD}/{MM}/{AAAA} - {HH}h{MM}'{SS}".
