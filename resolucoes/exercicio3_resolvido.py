@@ -11,8 +11,8 @@ Dificuldade: Principiante
 
 # Resolução
 
-nome = input("Qual é o seu nome?")
-idade = int(input("Quantos anos você tem?"))
-genero = input("Qual é o seu gênero? (Escreva por extenso, exemplo: masculino")
+nome = input("Qual é o seu nome? ")
+idade = int(input("Quantos anos você tem? "))
+genero = input("Qual é o seu gênero? (Escreva por extenso, exemplo: masculino) ")
 
 print("Olá, {}, você possui {} anos de idade e é do gênero {}. Já pensou no que você fará no seu aniversário de {} anos?".format(nome, idade, genero, idade + 1))
