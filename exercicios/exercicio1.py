@@ -1,6 +1,7 @@
 ﻿"""
 Exercício 1
 
+Nome: Operações Matemáticas
 Objetivo: Praticar declaração de variáveis, operações matemáticas e exibição de informações no console.
 Dificuldade: Principiante
 

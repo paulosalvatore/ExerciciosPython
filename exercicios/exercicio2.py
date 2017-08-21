@@ -1,6 +1,7 @@
 ﻿"""
 Exercício 2
 
+Nome: Formatar Números
 Objetivo: Praticar formatação de valores numéricos.
 Dificuldade: Principiante
 
