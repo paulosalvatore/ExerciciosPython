@@ -1,5 +1,5 @@
 ﻿"""
-Exercício 4
+Exercício 5
 
 Nome: Par ou Ímpar
 Objetivo: Receber um número do usuário e informar se ele é par ou ímpar.
