@@ -11,6 +11,8 @@ Dificuldade: Principiante
 4 - Caso contrário, exiba: "O número {numero1} é igual ao número {numero2}.".
 """
 
+# Resolução
+
 numero1 = int(input("Insira o número 1: "))
 numero2 = int(input("Insira o número 2: "))
 

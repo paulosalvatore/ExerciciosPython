@@ -10,6 +10,8 @@ Dificuldade: Principiante
 3 - Caso contrário, exiba na tela: "O número {numero1} não é múltiplo do número {numero2}.";
 """
 
+# Resolução
+
 numero1 = int(input("Insira o número 1: "))
 numero2 = int(input("Insira o número 2: "))
 

@@ -10,6 +10,8 @@ Objetivo: Receber o nome, extrair a primeira letra e fazer comparações.
 4 - Faça com que o programa funcione indepente se for digitado um nome com letras minúsculas ou maiúsculas.
 """
 
+# Resolução
+
 nome = input("Insira um nome: ")
 primeira_letra = nome[0].lower();
 

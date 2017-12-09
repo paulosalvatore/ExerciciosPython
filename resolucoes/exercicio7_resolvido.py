@@ -14,6 +14,8 @@ Supondo que o primeiro número seja 72 e o segundo número seja 10, o resultado 
 Se o primeiro número for 97 e o segundo número for 10, o resultado será 90.
 """
 
+# Resolução
+
 numero = int(input("Insira o primeiro número: "))
 multiplo = int(input("Insira o segundo número (multiplo): "))
 
