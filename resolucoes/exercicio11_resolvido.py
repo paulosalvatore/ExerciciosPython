@@ -3,6 +3,7 @@ Exercício 11
 
 Nome: Votação: Zona Eleitoral
 Objetivo: Receber a idade da pessoa e, caso seja maior ou igual a 16 anos, pergunta a zona onde a pessoa mora e exibe a escola de votação.
+Dificuldade: Principiante
 
 1 - Escreva um programa que:
 2 - Pergunte a idade da pessoa e, caso tenha menos do que 16 anos, informe que a pessoa não vota.
