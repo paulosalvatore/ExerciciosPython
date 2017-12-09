@@ -3,6 +3,7 @@ Exercício 10
 
 Nome: A de Amor, B de Baixinho
 Objetivo: Receber o nome, extrair a primeira letra e fazer comparações.
+Dificuldade: Principiante
 
 1 - Escreva um programa que receba o nome de uma pessoa;
 2 - Extraia a primeira letra do nome;
