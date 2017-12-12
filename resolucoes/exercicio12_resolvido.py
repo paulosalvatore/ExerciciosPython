@@ -3,7 +3,7 @@ Exercício 12
 
 Nome: Praticando Funções
 Objetivo: Escrever diversas funções para reaproveitar trechos de código
-Dificuldade: Principiante
+Dificuldade: Intermediário
 
 Escreva um código de modo que exiba o valor do x digitado pelo usuário e que seja
 substituído nas funções.
