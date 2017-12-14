@@ -1,5 +1,5 @@
 ﻿"""
-Exercício 13
+Exercício 14
 
 Nome: Média Escolar
 Objetivo: Escrever uma aplicação utilizando funções que calcule a média de um aluno.
