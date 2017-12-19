@@ -43,7 +43,7 @@ while True:
 
 		print("Você jogou {}.".format(jogada_usuario))
 
-		jogada_computador = randint(0, 3)
+		jogada_computador = randint(0, 2)
 
 		if jogada_computador == 0:
 			jogada_computador = "pedra"
@@ -103,7 +103,7 @@ while True:
 		rodadas -= 1
 	print()
 
-print("Placa do Jogo:")
+print("Placar do Jogo:")
 print("Pontos do Jogador: {}".format(pontos_jogador))
 print("Pontos do Computador: {}".format(pontos_computador))
 print("Empates: {}".format(empates))
