@@ -3,7 +3,7 @@ Exercício 26
 
 Nome: Jogo da Forca
 Objetivo: Desenvolver um jogo da forca completo.
-Dificuldade: Intermediário
+Dificuldade: Avançado
 
 1 - O programa terá uma lista de palavras lidas de um arquivo texto e escolherá uma aleatoriamente.
 2 - O jogador poderá errar 6 vezes antes de ser enforcado.
