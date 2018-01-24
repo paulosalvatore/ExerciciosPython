@@ -33,20 +33,14 @@ politicos = [
 	},
 	{
 		"nome": "Maria",
-		"partido": "PV",
-		"numero": 45,
-		"votos": 0
-	},
-	{
-		"nome": "Paulo",
-		"partido": "PSDB",
-		"numero": 43,
-		"votos": 0
-	},
-	{
-		"nome": "Roberta",
 		"partido": "PMDB",
-		"numero": 32,
+		"numero": 14,
+		"votos": 0
+	},
+	{
+		"nome": "João",
+		"partido": "PSDB",
+		"numero": 15,
 		"votos": 0
 	}
 ]
@@ -55,14 +49,17 @@ brancos = []
 nulos = []
 
 
-# Funções para processar a eleição
-
-
 def pegar_voto():
-	return input("Digite o número do politico que deseja votar ou 'branco' para votar em branco: ").lower()
+	return input("Digite o número do político que deseja votar ou 'branco' para votar em branco: ").lower()
 
 
 def procurar_politico(voto):
+	"""
+	Precisar varrer a lista de dicionários de políticos
+	Precisamos checar o número do político e ver se é igual ao valor digitado no voto
+	Caso encontremos um político, devemos retorná-lo
+	Caso contrário, não retornamos nada
+	"""
 	for politico in politicos:
 		if str(politico["numero"]) == voto:
 			return politico
@@ -70,7 +67,33 @@ def procurar_politico(voto):
 	return None
 
 
+def contabilizar_voto(voto, politico):
+	"""
+	Checar se o voto é branco e contabilizá-lo
+	Checar se existe algum político válido e contabilizar o voto para ele
+	Caso contrário, o voto é nulo, contabilizar da mesma forma
+	Exibir a mensagem de resultado
+	"""
+	if voto == "branco":
+		print("O seu voto em branco foi contabilizado.")
+		brancos.append(voto)
+	elif politico:
+		politico["votos"] += 1
+		print("O seu voto para o político '{}' foi contabilizado.".format(politico["nome"]))
+	else:
+		nulos.append(voto)
+		print("O seu voto foi anulado.")
+
+
 def validar_voto(voto):
+	"""
+	Essa função verificar se o voto é válido
+	Ela pesquisa cada político e vê se o valor do voto é igual ao número dele
+	Ela checa se o voto é branco
+	Precisar exibir se achou um político ou não e as informações dele
+	Depois disso, precisa contabilizar o voto (confirmando, corrigindo ou cancelando)
+	"""
+
 	politico = None
 
 	if voto == "branco":
@@ -88,27 +111,12 @@ def validar_voto(voto):
 	if acao == "confirmar":
 		contabilizar_voto(voto, politico)
 	elif acao == "corrigir":
-		print("Você selecionou a opção de corração do voto. Informe-o novamente.")
+		print("Você selecionou a opção de correção do voto. Informe-o novamente.")
 	else:
 		print("Você cancelou a informação do voto atual. Informe-o novamente.")
 
 
-def contabilizar_voto(voto, politico):
-	if voto == "branco":
-		brancos.append(voto)
-		print("O seu voto em branco foi contabilizado.")
-	if politico:
-		politico["votos"] += 1
-		print("O seu voto para o político '{}' foi contabilizado.".format(politico["nome"]))
-	else:
-		nulos.append(voto)
-		print("O seu voto foi anulado.")
-
-
-# Funções para exibir o resultado da eleição
-
-
-def pegar_total_votos_validos():
+def pegar_votos_validos():
 	votos_validos = 0
 
 	for politico in politicos:
@@ -118,39 +126,51 @@ def pegar_total_votos_validos():
 
 
 def exibir_votos():
-	print("Votos Válidos: {}.".format(pegar_total_votos_validos()))
-	print("Votos Brancos: {}.".format(len(brancos)))
-	print("Votos Nulos: {}.".format(len(nulos)))
+	print("Votos válidos: {}.".format(pegar_votos_validos()))
+	print("Votos brancos: {}.".format(len(brancos)))
+	print("Votos nulos: {}.".format(len(nulos)))
 
 
-def pegar_porcentagem_votos(politico):
-	votos_validos = pegar_total_votos_validos()
-	return politico["votos"] * 100 / votos_validos
+def pegar_porcentagem(politico):
+	"""
+	Preciso pegar o total de votos válidos da eleição
+	Preciso pegar os votos do político e fazer a regra de 3
+	"""
+	votos_validos = pegar_votos_validos()
+	porcentagem = (100 * politico["votos"]) / votos_validos
+	return porcentagem
 
 
 def exibir_politico(politico):
-	porcentagem = pegar_porcentagem_votos(politico)
-	print("Político '{}' do partido '{}' recebeu '{}' voto{} e ficou com '{}%' dos votos válidos.".format(politico["nome"], politico["partido"], "" if politico["votos"] == 1 else "s", politico["votos"], porcentagem))
+	porcentagem = pegar_porcentagem(politico)
+	plural = "" if politico["votos"] == 1 else "s"
+	print("Político '{}' do partido '{}' recebeu '{}' voto{} e ficou com '{:.2f}%' dos votos válidos.".format(politico["nome"], politico["partido"], politico["votos"], plural, porcentagem))
 
 
-def exibir_vencedor():
+def exibir_resultado_eleicao():
+	"""
+	O vencedor precisa ter mais de 50% dos votos válidos
+	Caso ninguém tenha, precisamos saber quem é o primeiro e o segundo lugar que vão
+	para o segundo turno
+	"""
 	primeiro_lugar = None
 	segundo_lugar = None
+
 	for politico in politicos:
-		if not primeiro_lugar or politico["votos"] > primeiro_lugar["votos"]:
-			if primeiro_lugar:
-				segundo_lugar = primeiro_lugar
+		if primeiro_lugar == None or politico["votos"] > primeiro_lugar["votos"]:
+			segundo_lugar = primeiro_lugar
 
 			primeiro_lugar = politico
-		elif not segundo_lugar or politico["votos"] > segundo_lugar["votos"]:
+		elif segundo_lugar == None or politico["votos"] > segundo_lugar["votos"]:
 			segundo_lugar = politico
 
-	porcentagem = pegar_porcentagem_votos(primeiro_lugar)
-	if porcentagem >= 50:
-		print("O vencedor da eleição é o político '{}' com '{}%' dos votos válidos.".format(primeiro_lugar["nome"], porcentagem))
+	porcentagem = pegar_porcentagem(primeiro_lugar)
+
+	if porcentagem > 50:
+		print("O vencedor da eleição é o político '{}' com '{:.2f}%' dos votos válidos.".format(primeiro_lugar["nome"], porcentagem))
 	else:
 		print("A votação encerrou em segundo turno.")
-		print("Os políticos que vão para o segundo turno são:")
+		print("Os políticos que irão para o segundo turno são:")
 		exibir_politico(primeiro_lugar)
 		exibir_politico(segundo_lugar)
 
@@ -170,9 +190,10 @@ while True:
 
 	validar_voto(voto)
 
-exibir_votos()
-exibir_vencedor()
 
-print("__________________________________")
+exibir_votos()
+exibir_resultado_eleicao()
+
+print("_____________________________")
 
 exibir_politicos()
