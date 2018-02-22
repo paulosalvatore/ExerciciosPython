@@ -28,6 +28,7 @@ Candidaturas:
 - Status da Candidatura (Classe)
 - Cidade (texto)
 - Eleito (bool)
+- Político (Classe)
 - Partido (Classe)
 - Data da Última Atualização (datetime)
 
